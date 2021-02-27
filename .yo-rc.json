@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.inacio.booma",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "monolith",
+    "baseName": "booma",
+    "packageName": "com.inacio.booma",
+    "packageFolder": "com/inacio/booma",
+    "serverPort": "8181",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Y2M3MzEwZWMzMDI0YjQyYjRlZDgyZmUxZWNmZmM4YjQ5MGRjOGM3NGZhNjI2NmI0MDg2ZjI5NmJkNGQ5MTVjM2I3MDI4OTEyMDFlNTI5MzdhYjc2NDUzMmMxYzdmZWZhZTFkYTM1OTA5MWNkYzNlNTYwMDc0MmI1Zjc0ZmEyMzI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "creationTimestamp": 1614003261829,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "de", "pt-br", "es"],
+    "blueprints": []
+  }
+}
