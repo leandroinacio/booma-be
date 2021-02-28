@@ -1,25 +1,27 @@
 package com.inacio.booma.domain;
 
-import com.inacio.booma.config.Constants;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Field;
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.inacio.booma.config.Constants;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
- * A user.
+ * An user.
  */
 @org.springframework.data.mongodb.core.mapping.Document(collection = "jhi_user")
 public class User extends AbstractAuditingEntity implements Serializable {
@@ -79,6 +81,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();
 
+    @Field("activities")
+    List<Sentence> activities;
 
     public String getId() {
         return id;
@@ -196,23 +200,36 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return id != null && id.equals(((User) o).id);
     }
 
+    public List<Sentence> getActivities() {
+        return this.activities;
+    }
+
+    public void setActivities(List<Sentence> activities) {
+        this.activities = activities;
+    }
+
     @Override
     public int hashCode() {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "User{" +
-            "login='" + login + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
-            ", activated='" + activated + '\'' +
-            ", langKey='" + langKey + '\'' +
-            ", activationKey='" + activationKey + '\'' +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "{" +
+			" id='" + getId() + "'" +
+			", login='" + getLogin() + "'" +
+			", password='" + getPassword() + "'" +
+			", firstName='" + getFirstName() + "'" +
+			", lastName='" + getLastName() + "'" +
+			", email='" + getEmail() + "'" +
+			", activated='" + getActivated() + "'" +
+			", langKey='" + getLangKey() + "'" +
+			", imageUrl='" + getImageUrl() + "'" +
+			", activationKey='" + getActivationKey() + "'" +
+			", resetKey='" + getResetKey() + "'" +
+			", resetDate='" + getResetDate() + "'" +
+			", authorities='" + getAuthorities() + "'" +
+			", activities='" + getActivities() + "'" +
+			"}";
+	}
 }
