@@ -11,6 +11,14 @@
     <packaging>jar</packaging>
     <name>Booma</name>
 
+    <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>Github Leandro Packages</name>
+        <url>https://maven.pkg.github.com/leandroinacio/booma</url>
+      </repository>
+    </distributionManagement>
+
     <repositories>
         <!-- jhipster-needle-maven-repository -->
     </repositories>
@@ -507,7 +515,7 @@
                                 <arg>/entrypoint.sh</arg>
                             </entrypoint>
                             <ports>
-                                <port>8080</port>
+                                <port>8181</port>
                             </ports>
                             <environment>
                                 <SPRING_OUTPUT_ANSI_ENABLED>ALWAYS</SPRING_OUTPUT_ANSI_ENABLED>

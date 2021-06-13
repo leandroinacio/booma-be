@@ -5,6 +5,7 @@ import com.leandroinacio.config.Constants;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import javax.validation.constraints.Email;
@@ -76,6 +77,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();
+
+    @Field("activities")
+    List<Sentence> activities;
 
     public String getId() {
         return id;
@@ -182,6 +186,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.authorities = authorities;
     }
 
+    public List<Sentence> getActivities() {
+        return this.activities;
+    }
+
+    public void setActivities(List<Sentence> activities) {
+        this.activities = activities;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -211,6 +223,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+			      ", activities='" + getActivities() + '\'' +
             "}";
     }
 }
